@@ -11,16 +11,19 @@ import UIKit
 class RestaurantTableViewController: UITableViewController {
     let cellIdentidier = "restraurantCell"
   
-    var restaurantNames = ["Cafe Deadend", "Homei", "Teakha", "Cafe Loisl", "P etite Oyster", "For Kee Restaurant", "Po's Atelier", "Bourke Street Bakery" , "Haigh's Chocolate", "Palomino Espresso", "Upstate", "Traif", "Graham Av enue Meats", "Waffle & Wolf", "Five Leaves", "Cafe Lore", "Confessional", "Barrafina", "Donostia", "Royal Oak", "CASK Pub and Kitchen"]
+    let restaurantNames = ["Cafe Deadend", "Homei", "Teakha", "Cafe Loisl", "P etite Oyster", "For Kee Restaurant", "Po's Atelier", "Bourke Street Bakery" , "Haigh's Chocolate", "Palomino Espresso", "Upstate", "Traif", "Graham Av enue Meats", "Waffle & Wolf", "Five Leaves", "Cafe Lore", "Confessional", "Barrafina", "Donostia", "Royal Oak", "CASK Pub and Kitchen"]
   
-    var restaurantImages = ["cafedeadend", "homei", "teakha", "cafeloisl", "petiteoyster", "forkeerestaurant", "posatelier", "bourkestreetbakery", "haighschocolate", "palominoespresso", "upstate", "traif", "grahamavenuemeats", "wafflewolf", "fiveleaves", "cafelore", "confessional", "barrafina", "donostia", "royaloak", "caskpubkitchen"]
+    let restaurantImages = ["cafedeadend", "homei", "teakha", "cafeloisl", "petiteoyster", "forkeerestaurant", "posatelier", "bourkestreetbakery", "haighschocolate", "palominoespresso", "upstate", "traif", "grahamavenuemeats", "wafflewolf", "fiveleaves", "cafelore", "confessional", "barrafina", "donostia", "royaloak", "caskpubkitchen"]
   
-    var restaurantLocations = ["Hong Kong", "Hong Kong", "Hong Kong", "Hong Kong", "Hong Kong", "Hong Kong", "Hong Kong", "Sydney", "Sydney", "Sydney", "New York", "New York", "New York", "New York", "New York", "New York", "New York", "London", "London", "London", "London"]
+    let restaurantLocations = ["Hong Kong", "Hong Kong", "Hong Kong", "Hong Kong", "Hong Kong", "Hong Kong", "Hong Kong", "Sydney", "Sydney", "Sydney", "New York", "New York", "New York", "New York", "New York", "New York", "New York", "London", "London", "London", "London"]
     
-    var restaurantTypes = ["Coffee & Tea Shop", "Cafe", "Tea House", "Austrian / Causual Drink", "French", "Bakery", "Bakery", "Chocolate", "Cafe", "American / Seafood", "American", "American", "Breakfast & Brunch", "Coffee & Tea", "Coffee & Tea", "Latin American", "Spanish", "Spanish", "Spanish", "British", "Thai"]
+    let restaurantTypes = ["Coffee & Tea Shop", "Cafe", "Tea House", "Austrian / Causual Drink", "French", "Bakery", "Bakery", "Chocolate", "Cafe", "American / Seafood", "American", "American", "Breakfast & Brunch", "Coffee & Tea", "Coffee & Tea", "Latin American", "Spanish", "Spanish", "Spanish", "British", "Thai"]
+  
+  var restaurantIsVisited: [Bool] = []
   
     override func viewDidLoad() {
         super.viewDidLoad()
+        restaurantIsVisited = Array(repeating: false, count: restaurantNames.count)
     }
 
     // MARK: - Table view data source
@@ -38,13 +41,50 @@ class RestaurantTableViewController: UITableViewController {
         
         // Configure the cell...
         cell.nameLabel.text = restaurantNames[indexPath.row]
+      
         cell.thumbnailImageView.image = UIImage(named: restaurantImages[indexPath.row])
+        cell.thumbnailImageView.layer.cornerRadius = cell.thumbnailImageView.frame.width / 2.0
+        cell.thumbnailImageView.clipsToBounds = true
+      
         cell.typeLabel.text = restaurantTypes[indexPath.row]
+      
         cell.locationLabel.text = restaurantLocations[indexPath.row]
-        
+      
+        cell.accessoryType = restaurantIsVisited[indexPath.row] ? .checkmark : .none
         return cell
     }
+  
+    override var prefersStatusBarHidden: Bool {
+        return true
+    }
+  
+  override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+    let optionMenu = UIAlertController(title: nil, message: "What do you want to do ?", preferredStyle: .alert)
+    
+    let checkInAction = UIAlertAction(title: "Check in", style: .default, handler: {(action:UIAlertAction!) -> Void in
+      let cell = tableView.cellForRow(at: indexPath)
+      cell?.accessoryType = .checkmark
+      self.restaurantIsVisited[indexPath.row] = true
+    })
 
+    let callAction = UIAlertAction(title: "Call " + "123-000-\(indexPath.row)" , style: .default, handler: {(action:UIAlertAction!) -> Void in
+      let alertMessage =    UIAlertController(title: "Service Unavailable", message: "Sorry, the call feature is not available yet. Please retry later.", preferredStyle: .alert)
+      alertMessage.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
+      
+      self.present(alertMessage, animated: true, completion: nil)
+    })
+    
+    let cancelAction = UIAlertAction(title: "Cancel", style: .cancel, handler: nil)
+    
+    optionMenu.addAction(cancelAction)
+    optionMenu.addAction(callAction)
+    optionMenu.addAction(checkInAction)
+    
+    
+    present(optionMenu, animated: true, completion: nil)
+    
+    tableView.deselectRow(at: indexPath, animated: false)
+  }
     /*
     // Override to support conditional editing of the table view.
     override func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
@@ -89,5 +129,4 @@ class RestaurantTableViewController: UITableViewController {
         // Pass the selected object to the new view controller.
     }
     */
-
 }
