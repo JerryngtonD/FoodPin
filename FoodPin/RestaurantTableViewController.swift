@@ -61,10 +61,11 @@ class RestaurantTableViewController: UITableViewController {
   override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
     let optionMenu = UIAlertController(title: nil, message: "What do you want to do ?", preferredStyle: .alert)
     
-    let checkInAction = UIAlertAction(title: "Check in", style: .default, handler: {(action:UIAlertAction!) -> Void in
+    let checkInTitle = self.restaurantIsVisited[indexPath.row] ? "Undo Check in" : "Check in"
+    let checkInAction = UIAlertAction(title: checkInTitle, style: .default, handler: {(action:UIAlertAction!) -> Void in
       let cell = tableView.cellForRow(at: indexPath)
-      cell?.accessoryType = .checkmark
-      self.restaurantIsVisited[indexPath.row] = true
+    cell?.accessoryType = self.restaurantIsVisited[indexPath.row] ? .none : .checkmark
+      self.restaurantIsVisited[indexPath.row] = self.restaurantIsVisited[indexPath.row] ? false : true
     })
 
     let callAction = UIAlertAction(title: "Call " + "123-000-\(indexPath.row)" , style: .default, handler: {(action:UIAlertAction!) -> Void in
