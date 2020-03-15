@@ -86,6 +86,32 @@ class RestaurantTableViewController: UITableViewController {
     
     tableView.deselectRow(at: indexPath, animated: false)
   }
+    
+    override func tableView(_ tableView: UITableView, trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
+        let deleteAction = UIContextualAction(style: .destructive, title: "Delete") {
+            (action, sourceView, completionHandler) in
+            // Delete the row from the data source
+            self.restaurantNames.remove(at: indexPath.row)
+            self.restaurantImages.remove(at: indexPath.row)
+            self.restaurantTypes.remove(at: indexPath.row)
+            self.restaurantIsVisited.remove(at: indexPath.row)
+            self.restaurantLocations.remove(at: indexPath.row)
+
+            self.tableView.deleteRows(at: [indexPath], with: .fade)
+            completionHandler(true)
+        }
+        
+        let shareAction = UIContextualAction(style: .normal, title: "Share") {
+             (action, sourceView, completionHandler) in
+            let defaultText = "Just checking in at " + self.restaurantNames[indexPath.row]
+            let activityController = UIActivityViewController(activityItems: [ defaultText], applicationActivities: nil)
+            self.present(activityController, animated: true, completion: nil)
+            completionHandler(true)
+        }
+        
+        let swipeConfiguration = UISwipeActionsConfiguration(actions: [deleteAction, shareAction])
+        return swipeConfiguration
+    }
     /*
     // Override to support conditional editing of the table view.
     override func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
@@ -94,31 +120,6 @@ class RestaurantTableViewController: UITableViewController {
     }
     */
 
-    // Override to support editing the table view.
-    override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
-        if editingStyle == .delete {
-            restaurantNames.remove(at: indexPath.row)
-            restaurantLocations.remove(at: indexPath.row)
-            restaurantTypes.remove(at: indexPath.row)
-            restaurantIsVisited.remove(at: indexPath.row)
-            restaurantImages.remove(at: indexPath.row)
-        }
-        
-        let transition = CATransition()
-        transition.type = CATransitionType.fade
-        transition.timingFunction = CAMediaTimingFunction(name: CAMediaTimingFunctionName.easeInEaseOut)
-        transition.fillMode = CAMediaTimingFillMode.forwards
-        transition.duration = 0.5
-        transition.subtype = CATransitionSubtype.fromTop
-        
-        tableView.layer.add(transition, forKey: "UITableViewReloadDataAnimationKey")
-        tableView.reloadData()
-        
-        print("Total item: \(restaurantNames.count)")
-        for name in restaurantNames {
-            print(name)
-        }
-    }
 
     /*
     // Override to support rearranging the table view.
@@ -134,6 +135,7 @@ class RestaurantTableViewController: UITableViewController {
         return true
     }
     */
+    
 
     /*
     // MARK: - Navigation
