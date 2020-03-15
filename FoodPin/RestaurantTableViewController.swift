@@ -50,7 +50,7 @@ class RestaurantTableViewController: UITableViewController {
       
         cell.locationLabel.text = restaurantLocations[indexPath.row]
       
-        cell.accessoryType = restaurantIsVisited[indexPath.row] ? .checkmark : .none
+        cell.heartImageView.isHidden = !self.restaurantIsVisited[indexPath.row]
         return cell
     }
   
@@ -63,9 +63,9 @@ class RestaurantTableViewController: UITableViewController {
     
     let checkInTitle = self.restaurantIsVisited[indexPath.row] ? "Undo Check in" : "Check in"
     let checkInAction = UIAlertAction(title: checkInTitle, style: .default, handler: {(action:UIAlertAction!) -> Void in
-      let cell = tableView.cellForRow(at: indexPath)
-    cell?.accessoryType = self.restaurantIsVisited[indexPath.row] ? .none : .checkmark
-      self.restaurantIsVisited[indexPath.row] = self.restaurantIsVisited[indexPath.row] ? false : true
+    let cell = tableView.cellForRow(at: indexPath) as! RestaurantTableViewCell
+    self.restaurantIsVisited[indexPath.row] = self.restaurantIsVisited[indexPath.row] ? false : true
+    cell.heartImageView.isHidden = !self.restaurantIsVisited[indexPath.row]
     })
 
     let callAction = UIAlertAction(title: "Call " + "123-000-\(indexPath.row)" , style: .default, handler: {(action:UIAlertAction!) -> Void in
