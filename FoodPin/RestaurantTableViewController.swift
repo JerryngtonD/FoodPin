@@ -122,11 +122,27 @@ class RestaurantTableViewController: UITableViewController {
         let swipeConfiguration = UISwipeActionsConfiguration(actions: [deleteAction, shareAction])
         return swipeConfiguration
     }
-    
-    //MARK: TODO REGISTRATION VIA RIGHT SWIPE
-//    override func tableView(_ tableView: UITableView, leadingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
-//
-//    }
+
+    override func tableView(_ tableView: UITableView, leadingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
+        
+        let checkAction = UIContextualAction(style: .normal, title: "Check-In") {
+               (action, sourceView, completionHandler) in
+          
+        let cell = tableView.cellForRow(at: indexPath) as! RestaurantTableViewCell
+
+        self.restaurantIsVisited[indexPath.row] = self.restaurantIsVisited[indexPath.row] ? false : true
+        cell.heartImageView.isHidden = !self.restaurantIsVisited[indexPath.row]
+        completionHandler(true)
+        }
+        
+         
+        let checkInIcon = restaurantIsVisited[indexPath.row] ? "arrow.uturn.left" : "checkmark"
+        checkAction.backgroundColor = UIColor(red: 38.0/255.0, green: 162.0/255.0, blue: 78.0/255.0, alpha: 1.0)
+        checkAction.image = UIImage(systemName: checkInIcon)
+        let swipeConfiguration = UISwipeActionsConfiguration(actions: [checkAction])
+
+        return swipeConfiguration
+    }
     
     
     /*
