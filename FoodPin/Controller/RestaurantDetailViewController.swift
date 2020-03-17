@@ -9,12 +9,8 @@
 import UIKit
 
 class RestaurantDetailViewController: UIViewController {
-    @IBOutlet var restaurantImageView: UIImageView!
-    var restaurantImageName = ""
-    
-    @IBOutlet var restaurantNameLabel: UILabel!
-    @IBOutlet var restaurantTypeLabel: UILabel!
-    @IBOutlet weak var restaurantLocationLabel: UILabel!
+    @IBOutlet var headerView: RestaurantDetailHeaderView!
+    @IBOutlet var tableView: UITableView!
     
     var restaurant = Restaurant()
     
@@ -22,9 +18,10 @@ class RestaurantDetailViewController: UIViewController {
         super.viewDidLoad()
         navigationItem.largeTitleDisplayMode = .never
         
-        restaurantImageView.image = UIImage(named: restaurant.image)
-        restaurantNameLabel.text = restaurant.name
-        restaurantTypeLabel.text = restaurant.type
-        restaurantLocationLabel.text = restaurant.location
+        // Configure header view
+        headerView.nameLabel.text = restaurant.name
+        headerView.typeLabel.text = restaurant.type
+        headerView.headerImageView.image = UIImage(named: restaurant.image)
+        headerView.heartImageView.isHidden = restaurant.isVisited ? false : true
     }
 }
