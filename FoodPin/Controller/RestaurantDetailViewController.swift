@@ -77,6 +77,7 @@ class RestaurantDetailViewController:  UIViewController, UITableViewDataSource, 
         navigationController?.setNavigationBarHidden(false, animated: true)
     }
     
+    // MARK: - Status bar configuration
     override var preferredStatusBarStyle: UIStatusBarStyle {
         return .lightContent
     }

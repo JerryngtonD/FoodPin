@@ -38,15 +38,16 @@ class RestaurantTableViewController: UITableViewController {
         super.viewDidLoad()
         navigationController?.navigationBar.prefersLargeTitles = true
         
+        // Configure the navigation bar
         navigationController?.navigationBar.setBackgroundImage(UIImage(), for: .default)
         navigationController?.navigationBar.shadowImage = UIImage()
-        
         if let customFont = UIFont(name: "Rubik-Medium", size: 40.0) {
         navigationController?.navigationBar.largeTitleTextAttributes = [
             NSAttributedString.Key.foregroundColor:
             UIColor(red: 231, green: 76, blue: 60),
             NSAttributedString.Key.font: customFont ]
         }
+        navigationController?.hidesBarsOnSwipe = true
     }
     
     override func viewWillAppear(_ animated: Bool) {
