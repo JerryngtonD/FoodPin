@@ -49,6 +49,7 @@ class RestaurantDetailViewController:  UIViewController, UITableViewDataSource, 
             case 4:
                 let cell = tableView.dequeueReusableCell(withIdentifier: String(describing: RestaurantDetailMapCell.self), for: indexPath) as! RestaurantDetailMapCell
                 cell.selectionStyle = .none
+                cell.configure(location: restaurant.location)
                 return cell
             default:
             fatalError("Failed to instantiate the table view cell for detail view controller")
@@ -82,6 +83,7 @@ class RestaurantDetailViewController:  UIViewController, UITableViewDataSource, 
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
           
+        navigationController?.navigationBar.tintColor = .white
         navigationController?.hidesBarsOnSwipe = false
         navigationController?.setNavigationBarHidden(false, animated: true)
     }
@@ -89,5 +91,12 @@ class RestaurantDetailViewController:  UIViewController, UITableViewDataSource, 
     // MARK: - Status bar configuration
     override var preferredStatusBarStyle: UIStatusBarStyle {
         return .lightContent
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "showMap" {
+            let destinationController = segue.destination as! MapViewController
+            destinationController.restaurant = restaurant
+        }
     }
 }
