@@ -93,9 +93,17 @@ class RestaurantDetailViewController:  UIViewController, UITableViewDataSource, 
         return .lightContent
     }
     
+    @IBAction func close(segue: UIStoryboardSegue) {
+        dismiss(animated: true, completion: nil)
+    }
+    
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if segue.identifier == "showMap" {
+        let segueType = segue.identifier
+        if segueType == "showMap" {
             let destinationController = segue.destination as! MapViewController
+            destinationController.restaurant = restaurant
+        } else if (segueType == "showReview") {
+            let destinationController = segue.destination as! ReviewViewController
             destinationController.restaurant = restaurant
         }
     }

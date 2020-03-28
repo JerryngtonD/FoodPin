@@ -189,6 +189,9 @@
                                             <integer key="value" value="25"/>
                                         </userDefinedRuntimeAttribute>
                                     </userDefinedRuntimeAttributes>
+                                    <connections>
+                                        <segue destination="qxB-Ea-QIF" kind="presentation" identifier="showReview" modalPresentationStyle="fullScreen" modalTransitionStyle="crossDissolve" id="PKQ-Ha-7AL"/>
+                                    </connections>
                                 </button>
                             </subviews>
                             <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
@@ -367,7 +370,84 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="8qH-gx-94O" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2950.7246376811595" y="127.90178571428571"/>
+            <point key="canvasLocation" x="3148" y="-226"/>
+        </scene>
+        <!--Review View Controller-->
+        <scene sceneID="HWH-aQ-7ry">
+            <objects>
+                <viewController id="qxB-Ea-QIF" customClass="ReviewViewController" customModule="FoodPin" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="ooI-Oi-M1n">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="jqA-zd-faQ">
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                            </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pdB-QY-1IQ">
+                                <rect key="frame" x="376.5" y="44" width="17.5" height="22"/>
+                                <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <state key="normal" image="xmark" catalog="system"/>
+                                <connections>
+                                    <segue destination="uPV-gt-NqS" kind="unwind" unwindAction="closeWithSegue:" id="AhC-ki-0im"/>
+                                </connections>
+                            </button>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="top" spacing="6" translatesAutoresizingMaskIntoConstraints="NO" id="dR6-VM-g1c">
+                                <rect key="frame" x="55" y="-5" width="304" height="906"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="COI-YT-mB5">
+                                        <rect key="frame" x="0.0" y="0.0" width="265" height="164"/>
+                                        <fontDescription key="fontDescription" name="Rubik-Regular" family="Rubik" pointSize="50"/>
+                                        <state key="normal" title="Love" image="love"/>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="sHe-Ej-880">
+                                        <rect key="frame" x="0.0" y="170" width="261" height="166"/>
+                                        <fontDescription key="fontDescription" name="Rubik-Regular" family="Rubik" pointSize="50"/>
+                                        <state key="normal" title="Cool" image="cool"/>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kCA-tD-PcH">
+                                        <rect key="frame" x="0.0" y="342" width="304" height="172"/>
+                                        <fontDescription key="fontDescription" name="Rubik-Regular" family="Rubik" pointSize="50"/>
+                                        <state key="normal" title="Happy" image="happy"/>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="PKR-2u-KLd">
+                                        <rect key="frame" x="0.0" y="520" width="245" height="174"/>
+                                        <fontDescription key="fontDescription" name="Rubik-Regular" family="Rubik" pointSize="50"/>
+                                        <state key="normal" title="Sad" image="sad"/>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7kg-em-GXj">
+                                        <rect key="frame" x="0.0" y="700" width="287" height="206"/>
+                                        <fontDescription key="fontDescription" name="Rubik-Regular" family="Rubik" pointSize="50"/>
+                                        <state key="normal" title="Angry" image="angry"/>
+                                    </button>
+                                </subviews>
+                            </stackView>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="dR6-VM-g1c" firstAttribute="centerY" secondItem="ooI-Oi-M1n" secondAttribute="centerY" id="4cd-mf-UT4"/>
+                            <constraint firstItem="jqA-zd-faQ" firstAttribute="leading" secondItem="tVw-pF-74n" secondAttribute="leading" id="6l9-Bs-Le1"/>
+                            <constraint firstAttribute="bottom" secondItem="jqA-zd-faQ" secondAttribute="bottom" id="Vgy-Y8-9nt"/>
+                            <constraint firstItem="tVw-pF-74n" firstAttribute="trailing" secondItem="pdB-QY-1IQ" secondAttribute="trailing" constant="20" id="Vlb-8S-OQb"/>
+                            <constraint firstItem="jqA-zd-faQ" firstAttribute="trailing" secondItem="tVw-pF-74n" secondAttribute="trailing" id="ZBU-ur-72e"/>
+                            <constraint firstItem="jqA-zd-faQ" firstAttribute="top" secondItem="ooI-Oi-M1n" secondAttribute="top" id="ft3-ks-Ch5"/>
+                            <constraint firstItem="dR6-VM-g1c" firstAttribute="centerX" secondItem="ooI-Oi-M1n" secondAttribute="centerX" id="mAE-dG-bhb"/>
+                            <constraint firstItem="pdB-QY-1IQ" firstAttribute="top" secondItem="tVw-pF-74n" secondAttribute="top" id="rFR-8g-aJf"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="tVw-pF-74n"/>
+                    </view>
+                    <connections>
+                        <outlet property="backgroundImageView" destination="jqA-zd-faQ" id="ZPw-fy-rUU"/>
+                        <outletCollection property="rateButtons" destination="COI-YT-mB5" collectionClass="NSMutableArray" id="teh-Tl-uw2"/>
+                        <outletCollection property="rateButtons" destination="sHe-Ej-880" collectionClass="NSMutableArray" id="CaL-Kf-S24"/>
+                        <outletCollection property="rateButtons" destination="kCA-tD-PcH" collectionClass="NSMutableArray" id="tJT-gF-yH8"/>
+                        <outletCollection property="rateButtons" destination="PKR-2u-KLd" collectionClass="NSMutableArray" id="BXC-si-eka"/>
+                        <outletCollection property="rateButtons" destination="7kg-em-GXj" collectionClass="NSMutableArray" id="bmF-zf-ycs"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="hJ2-Zt-Osb" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+                <exit id="uPV-gt-NqS" userLabel="Exit" sceneMemberID="exit"/>
+            </objects>
+            <point key="canvasLocation" x="3147.826086956522" y="507.58928571428567"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="qpF-B7-6ra">
@@ -389,6 +469,12 @@
         </scene>
     </scenes>
     <resources>
+        <image name="angry" width="78" height="103"/>
+        <image name="cool" width="78" height="83"/>
+        <image name="happy" width="78" height="86"/>
         <image name="heart-tick" width="22" height="21"/>
+        <image name="love" width="78" height="82"/>
+        <image name="sad" width="78" height="87"/>
+        <image name="xmark" catalog="system" width="64" height="56"/>
     </resources>
 </document>
