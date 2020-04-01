@@ -8,7 +8,12 @@
 
 import UIKit
 
-class NewRestaurantController: UITableViewController, UITextFieldDelegate {
+class NewRestaurantController:  UITableViewController,
+                                UITextFieldDelegate,
+                                UIImagePickerControllerDelegate,
+                                UINavigationControllerDelegate {
+    @IBOutlet var photoImageView: UIImageView!
+    
     @IBOutlet var nameTextField: RoundedTextField! {
         didSet {
             nameTextField.tag = 1
@@ -72,6 +77,7 @@ class NewRestaurantController: UITableViewController, UITextFieldDelegate {
             let cameraAction = UIAlertAction(title: "Camera", style: .default, handler: { (action) in
                 if UIImagePickerController.isSourceTypeAvailable(.camera) {
                     let imagePicker = UIImagePickerController()
+                    imagePicker.delegate = self
                     imagePicker.allowsEditing = false
                     imagePicker.sourceType = .camera
                     self.present(imagePicker, animated: true, completion: nil)
@@ -81,6 +87,7 @@ class NewRestaurantController: UITableViewController, UITextFieldDelegate {
             let photoLibraryAction = UIAlertAction(title: "Photo library", style: .default, handler: { (action) in
                 if UIImagePickerController.isSourceTypeAvailable(.photoLibrary) {
                     let imagePicker = UIImagePickerController()
+                    imagePicker.delegate = self
                     imagePicker.allowsEditing = false
                     imagePicker.sourceType = .photoLibrary
                     self.present(imagePicker, animated: true, completion: nil)
@@ -92,5 +99,14 @@ class NewRestaurantController: UITableViewController, UITextFieldDelegate {
             
             present(photoSourceRequestController, animated: true, completion: nil)
         }
+    }
+    
+    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
+        if let selectedImage = info[UIImagePickerController.InfoKey.originalImage] as? UIImage {
+            photoImageView.image = selectedImage
+            photoImageView.contentMode = .scaleAspectFill
+            photoImageView.clipsToBounds = true
+        }
+        dismiss(animated: true, completion: nil)
     }
 }
