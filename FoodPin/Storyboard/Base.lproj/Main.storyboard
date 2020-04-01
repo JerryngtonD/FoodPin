@@ -101,7 +101,14 @@
                             <outlet property="delegate" destination="0H9-5w-4ba" id="9Dq-Tr-lo2"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="FoodPin" id="NhR-eg-bME"/>
+                    <navigationItem key="navigationItem" title="FoodPin" id="NhR-eg-bME">
+                        <barButtonItem key="rightBarButtonItem" image="plus" catalog="system" id="HIG-59-1t3">
+                            <color key="tintColor" cocoaTouchSystemColor="darkTextColor"/>
+                            <connections>
+                                <segue destination="6e1-Yy-qTO" kind="presentation" identifier="addRestaurant" modalPresentationStyle="fullScreen" id="sDu-Yu-ddX"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="bvl-xb-Xtw" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -680,11 +687,19 @@
                             <outlet property="delegate" destination="nwh-GP-SiU" id="b6H-76-Xhb"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="New Restaurant" id="0KL-pf-iVA"/>
+                    <navigationItem key="navigationItem" title="New Restaurant" id="0KL-pf-iVA">
+                        <barButtonItem key="leftBarButtonItem" image="xmark" catalog="system" id="BSv-35-8DS">
+                            <color key="tintColor" cocoaTouchSystemColor="darkTextColor"/>
+                            <connections>
+                                <segue destination="EVR-5P-lzw" kind="unwind" unwindAction="unwindToHomeWithSegue:" id="5WX-RY-BO6"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="P9r-B0-YAi" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+                <exit id="EVR-5P-lzw" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="5408.6956521739139" y="265.84821428571428"/>
+            <point key="canvasLocation" x="2930" y="-900"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="qpF-B7-6ra">
@@ -720,7 +735,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="MiO-e9-OkR" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="4498.5507246376819" y="265.84821428571428"/>
+            <point key="canvasLocation" x="1829" y="-900"/>
         </scene>
     </scenes>
     <resources>
@@ -730,6 +745,7 @@
         <image name="heart-tick" width="22" height="21"/>
         <image name="love" width="78" height="82"/>
         <image name="photo" catalog="system" width="64" height="46"/>
+        <image name="plus" catalog="system" width="64" height="56"/>
         <image name="sad" width="78" height="87"/>
         <image name="xmark" catalog="system" width="64" height="56"/>
     </resources>

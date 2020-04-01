@@ -215,4 +215,8 @@ class RestaurantTableViewController: UITableViewController {
         // Pass the selected object to the new view controller.
     }
     */
+    
+    @IBAction func unwindToHome(segue: UIStoryboardSegue) {
+        dismiss(animated: true, completion: nil)
+    }
 }
