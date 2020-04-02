@@ -62,6 +62,8 @@ class NewRestaurantController:  UITableViewController,
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        tableView.separatorStyle = .none
+        
          // Configure navigation bar appearance
         if let customFont = UIFont(name: "Rubik-Medium", size: 35.0) {
             navigationController?.navigationBar.largeTitleTextAttributes = [
@@ -122,5 +124,24 @@ class NewRestaurantController:  UITableViewController,
         bottomConstraint.isActive = true
         
         dismiss(animated: true, completion: nil)
+    }
+    
+    @IBAction func saveButtonTapped(_ sender: Any) {
+        if nameTextField.text == "" || typeTextField.text == "" || addressTextField.text == "" || phoneTextField.text == "" || descriptionTextView.text == "" {
+                 let alertController = UIAlertController(title: "Oops", message: "We can't proceed because one of the fields is blank. Please note that all fields are required.", preferredStyle: .alert)
+                 let alertAction = UIAlertAction(title: "OK", style: .default, handler: nil)
+                 alertController.addAction(alertAction)
+                 present(alertController, animated: true, completion: nil)
+                 
+                 return
+             }
+             
+             print("Name: \(nameTextField.text ?? "")")
+             print("Type: \(typeTextField.text ?? "")")
+             print("Location: \(addressTextField.text ?? "")")
+             print("Phone: \(phoneTextField.text ?? "")")
+             print("Description: \(descriptionTextView.text ?? "")")
+             
+             dismiss(animated: true, completion: nil)
     }
 }

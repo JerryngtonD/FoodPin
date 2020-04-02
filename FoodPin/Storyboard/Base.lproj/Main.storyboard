@@ -694,6 +694,12 @@
                                 <segue destination="EVR-5P-lzw" kind="unwind" unwindAction="unwindToHomeWithSegue:" id="5WX-RY-BO6"/>
                             </connections>
                         </barButtonItem>
+                        <barButtonItem key="rightBarButtonItem" image="arrow.down.doc" catalog="system" id="sjd-vl-O1r">
+                            <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <connections>
+                                <action selector="saveButtonTapped:" destination="nwh-GP-SiU" id="ZVd-d2-9CK"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
                     <connections>
                         <outlet property="addressTextField" destination="J6i-Zc-Ha2" id="6Xy-X2-1Ry"/>
@@ -748,6 +754,7 @@
     </scenes>
     <resources>
         <image name="angry" width="78" height="103"/>
+        <image name="arrow.down.doc" catalog="system" width="56" height="64"/>
         <image name="cool" width="78" height="83"/>
         <image name="happy" width="78" height="86"/>
         <image name="heart-tick" width="22" height="21"/>
