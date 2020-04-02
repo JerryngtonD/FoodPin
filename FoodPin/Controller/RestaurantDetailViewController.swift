@@ -12,7 +12,7 @@ class RestaurantDetailViewController:  UIViewController, UITableViewDataSource, 
     @IBOutlet var headerView: RestaurantDetailHeaderView!
     @IBOutlet var tableView: UITableView!
      
-    var restaurant = Restaurant()
+    var restaurant: RestaurantMO!
     
     func numberOfSections(in tableView: UITableView) -> Int {
         return 1
@@ -49,7 +49,9 @@ class RestaurantDetailViewController:  UIViewController, UITableViewDataSource, 
             case 4:
                 let cell = tableView.dequeueReusableCell(withIdentifier: String(describing: RestaurantDetailMapCell.self), for: indexPath) as! RestaurantDetailMapCell
                 cell.selectionStyle = .none
-                cell.configure(location: restaurant.location)
+                if let restaurantLocation = restaurant.location {
+                    cell.configure(location: restaurantLocation)
+                }
                 return cell
             default:
             fatalError("Failed to instantiate the table view cell for detail view controller")
@@ -76,7 +78,9 @@ class RestaurantDetailViewController:  UIViewController, UITableViewDataSource, 
         // Configure header view
         headerView.nameLabel.text = restaurant.name
         headerView.typeLabel.text = restaurant.type
-        headerView.headerImageView.image = UIImage(named: restaurant.image)
+        if let restaurantImage = restaurant.image {
+            headerView.headerImageView.image = UIImage(data: restaurantImage as Data)
+        }
         headerView.heartImageView.isHidden = restaurant.isVisited ? false : true
     }
     
