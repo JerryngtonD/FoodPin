@@ -13,8 +13,14 @@ class RestaurantTableViewController: UITableViewController {
     
     var restaurants:[RestaurantMO] = []
     
+    @IBOutlet var emptyRestaurantView: UIView!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        // Prepare the empty view
+        tableView.backgroundView = emptyRestaurantView
+        tableView.backgroundView?.isHidden = true
+        
         navigationController?.navigationBar.prefersLargeTitles = true
         
         // Configure the navigation bar
@@ -38,6 +44,13 @@ class RestaurantTableViewController: UITableViewController {
     // MARK: - Table view data source
 
     override func numberOfSections(in tableView: UITableView) -> Int {
+        if restaurants.count > 0 {
+            tableView.backgroundView?.isHidden = true
+            tableView.separatorStyle = .singleLine
+        } else {
+            tableView.backgroundView?.isHidden = false
+            tableView.separatorStyle = .none
+        }
         return 1
     }
 
