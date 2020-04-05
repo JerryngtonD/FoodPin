@@ -141,7 +141,7 @@ class NewRestaurantController:  UITableViewController,
              
         if let appDelegate = (UIApplication.shared.delegate as? AppDelegate) {
             restaurant = RestaurantMO(context: appDelegate.persistentContainer.viewContext)
-             restaurant.name = nameTextField.text
+            restaurant.name = nameTextField.text
             restaurant.type = typeTextField.text
             restaurant.location = addressTextField.text
             restaurant.phone = phoneTextField.text
