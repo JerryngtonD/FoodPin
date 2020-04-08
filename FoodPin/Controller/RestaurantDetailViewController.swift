@@ -83,6 +83,10 @@ class RestaurantDetailViewController:  UIViewController, UITableViewDataSource, 
             headerView.headerImageView.image = UIImage(data: restaurantImage as Data)
         }
         headerView.heartImageView.isHidden = restaurant.isVisited ? false : true
+        
+        if let rating = restaurant.rating {
+            headerView.ratingImageView.image = UIImage(named: rating)
+        }
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -122,6 +126,10 @@ class RestaurantDetailViewController:  UIViewController, UITableViewDataSource, 
                 let scaleTransform = CGAffineTransform.init(scaleX: 0.1, y: 0.1)
                 self.headerView.ratingImageView.transform = scaleTransform
                 self.headerView.ratingImageView.alpha = 0
+                
+                if let appDelegate = (UIApplication.shared.delegate as? AppDelegate) {
+                    appDelegate.saveContext()
+                }
                 
                 UIView.animate(
                     withDuration: 0.4, delay: 0, usingSpringWithDamping: 0.3, initialSpringVelocity: 0.7, options: [], animations: {
