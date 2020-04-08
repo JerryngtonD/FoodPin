@@ -9,7 +9,7 @@
 import UIKit
 import CoreData
 
-class RestaurantTableViewController: UITableViewController, NSFetchedResultsControllerDelegate {
+class RestaurantTableViewController: UITableViewController, NSFetchedResultsControllerDelegate, UISearchResultsUpdating {
     let cellIdentidier = "restraurantCell"
     
     var restaurants:[RestaurantMO] = []
@@ -17,6 +17,8 @@ class RestaurantTableViewController: UITableViewController, NSFetchedResultsCont
     var fetchResultController: NSFetchedResultsController<RestaurantMO>!
     
     var searchController: UISearchController!
+    
+    var searchResults: [RestaurantMO] = []
     
     @IBOutlet var emptyRestaurantView: UIView!
     
@@ -61,6 +63,9 @@ class RestaurantTableViewController: UITableViewController, NSFetchedResultsCont
         
         searchController = UISearchController(searchResultsController: nil)
         self.navigationItem.searchController = searchController
+        
+        searchController.searchResultsUpdater = self
+        searchController.obscuresBackgroundDuringPresentation = false
     }
     
     func controllerWillChangeContent(_ controller: NSFetchedResultsController<NSFetchRequestResult>) {
@@ -93,6 +98,23 @@ class RestaurantTableViewController: UITableViewController, NSFetchedResultsCont
         tableView.endUpdates()
     }
     
+    func updateSearchResults(for searchController: UISearchController) {
+        if let searchText = searchController.searchBar.text {
+            filterContent(for: searchText)
+            tableView.reloadData()
+        }
+    }
+    
+    func filterContent(for searchText: String) {
+        searchResults = restaurants.filter({ (restaurant) -> Bool in
+            if let name = restaurant.name {
+                let isMatch = name.localizedCaseInsensitiveContains(searchText)
+                return isMatch
+            }
+            return false
+        })
+    }
+    
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
@@ -102,14 +124,19 @@ class RestaurantTableViewController: UITableViewController, NSFetchedResultsCont
     // MARK: - Table view data source
 
     override func numberOfSections(in tableView: UITableView) -> Int {
-        if restaurants.count > 0 {
-            tableView.backgroundView?.isHidden = true
-            tableView.separatorStyle = .singleLine
+        if searchController.isActive {
+            return searchResults.count
         } else {
-            tableView.backgroundView?.isHidden = false
-            tableView.separatorStyle = .none
+            if restaurants.count > 0 {
+                tableView.backgroundView?.isHidden = true
+                tableView.separatorStyle = .singleLine
+            } else {
+                tableView.backgroundView?.isHidden = false
+                tableView.separatorStyle = .none
+            }
+            return 1
         }
-        return 1
+        
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -119,20 +146,23 @@ class RestaurantTableViewController: UITableViewController, NSFetchedResultsCont
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
       let cell = tableView.dequeueReusableCell(withIdentifier: cellIdentidier, for: indexPath) as! RestaurantTableViewCell
         
+        // Determine if we get the restaurant from search result or the original array
+        let restaurant = (searchController.isActive) ? searchResults[indexPath .row] : restaurants[indexPath.row]
+        
         // Configure the cell...
-        cell.nameLabel.text = restaurants[indexPath.row].name
+        cell.nameLabel.text = restaurant.name
       
-        if let restaurantImage = restaurants[indexPath.row].image {
+        if let restaurantImage = restaurant.image {
             cell.thumbnailImageView.image = UIImage(data: restaurantImage as Data)
             cell.thumbnailImageView.layer.cornerRadius = cell.thumbnailImageView.frame.width / 2.0
             cell.thumbnailImageView.clipsToBounds = true
         }
         
-        cell.typeLabel.text = restaurants[indexPath.row].type
+        cell.typeLabel.text = restaurant.type
       
-        cell.locationLabel.text = restaurants[indexPath.row].location
+        cell.locationLabel.text = restaurant.location
       
-        cell.heartImageView.isHidden = !self.restaurants[indexPath.row].isVisited
+        cell.heartImageView.isHidden = !restaurant.isVisited
         return cell
     }
   
