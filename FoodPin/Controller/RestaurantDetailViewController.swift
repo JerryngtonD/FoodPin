@@ -38,7 +38,7 @@ class RestaurantDetailViewController:  UIViewController, UITableViewDataSource, 
                 return cell
             case 2:
                 let cell = tableView.dequeueReusableCell(withIdentifier: String(describing: RestaurantDetailTextCell.self), for: indexPath) as! RestaurantDetailTextCell
-                cell.descriptionLabel.text = restaurant.description
+                cell.descriptionLabel.text = restaurant.summary
                 cell.selectionStyle = .none
                 return cell
             case 3:
@@ -47,7 +47,8 @@ class RestaurantDetailViewController:  UIViewController, UITableViewDataSource, 
                 cell.selectionStyle = .none
                 return cell
             case 4:
-                let cell = tableView.dequeueReusableCell(withIdentifier: String(describing: RestaurantDetailMapCell.self), for: indexPath) as! RestaurantDetailMapCell
+                let cell = tableView.dequeueReusableCell(withIdentifier: String(describing:
+                    RestaurantDetailMapCell.self), for: indexPath) as! RestaurantDetailMapCell
                 cell.selectionStyle = .none
                 if let restaurantLocation = restaurant.location {
                     cell.configure(location: restaurantLocation)
