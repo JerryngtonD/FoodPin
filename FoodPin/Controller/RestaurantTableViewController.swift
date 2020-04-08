@@ -16,6 +16,8 @@ class RestaurantTableViewController: UITableViewController, NSFetchedResultsCont
     
     var fetchResultController: NSFetchedResultsController<RestaurantMO>!
     
+    var searchController: UISearchController!
+    
     @IBOutlet var emptyRestaurantView: UIView!
     
     override func viewDidLoad() {
@@ -56,6 +58,9 @@ class RestaurantTableViewController: UITableViewController, NSFetchedResultsCont
                     print(error)
             }
         }
+        
+        searchController = UISearchController(searchResultsController: nil)
+        self.navigationItem.searchController = searchController
     }
     
     func controllerWillChangeContent(_ controller: NSFetchedResultsController<NSFetchRequestResult>) {
