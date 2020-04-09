@@ -62,10 +62,17 @@ class RestaurantTableViewController: UITableViewController, NSFetchedResultsCont
         }
         
         searchController = UISearchController(searchResultsController: nil)
-        self.navigationItem.searchController = searchController
-        
         searchController.searchResultsUpdater = self
         searchController.obscuresBackgroundDuringPresentation = false
+        
+        // Appearance of search view
+        searchController.searchBar.placeholder = "Search restaurants..."
+        searchController.searchBar.barTintColor = .white
+        searchController.searchBar.backgroundImage = UIImage()
+        searchController.searchBar.tintColor = UIColor(red: 231, green: 76, blue: 60)
+        
+        // Just present search view to table view header
+        tableView.tableHeaderView = searchController.searchBar
     }
     
     func controllerWillChangeContent(_ controller: NSFetchedResultsController<NSFetchRequestResult>) {
@@ -107,9 +114,11 @@ class RestaurantTableViewController: UITableViewController, NSFetchedResultsCont
     
     func filterContent(for searchText: String) {
         searchResults = restaurants.filter({ (restaurant) -> Bool in
-            if let name = restaurant.name {
-                let isMatch = name.localizedCaseInsensitiveContains(searchText)
-                return isMatch
+            if let name = restaurant.name,
+                let location = restaurant.location {
+                    let isMatch = name.localizedCaseInsensitiveContains(searchText) || location.localizedCaseInsensitiveContains(searchText)
+                
+                    return isMatch
             }
             return false
         })
@@ -124,30 +133,30 @@ class RestaurantTableViewController: UITableViewController, NSFetchedResultsCont
     // MARK: - Table view data source
 
     override func numberOfSections(in tableView: UITableView) -> Int {
-        if searchController.isActive {
-            return searchResults.count
+        if restaurants.count > 0 {
+            tableView.backgroundView?.isHidden = true
+            tableView.separatorStyle = .singleLine
         } else {
-            if restaurants.count > 0 {
-                tableView.backgroundView?.isHidden = true
-                tableView.separatorStyle = .singleLine
-            } else {
-                tableView.backgroundView?.isHidden = false
-                tableView.separatorStyle = .none
-            }
-            return 1
+            tableView.backgroundView?.isHidden = false
+            tableView.separatorStyle = .none
         }
-        
+
+        return 1
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-      return restaurants.count
+        if searchController.isActive {
+            return searchResults.count
+        } else {
+            return restaurants.count
+        }
     }
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
       let cell = tableView.dequeueReusableCell(withIdentifier: cellIdentidier, for: indexPath) as! RestaurantTableViewCell
         
         // Determine if we get the restaurant from search result or the original array
-        let restaurant = (searchController.isActive) ? searchResults[indexPath .row] : restaurants[indexPath.row]
+        let restaurant = (searchController.isActive) ? searchResults[indexPath.row] : restaurants[indexPath.row]
         
         // Configure the cell...
         cell.nameLabel.text = restaurant.name
