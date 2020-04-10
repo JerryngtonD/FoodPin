@@ -23,7 +23,7 @@
                 </pageViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="P4a-6a-KIp" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="54" y="44"/>
+            <point key="canvasLocation" x="64" y="671"/>
         </scene>
         <!--Walkthrough View Controller-->
         <scene sceneID="fLn-YS-CFy">
@@ -60,12 +60,18 @@
                                                 <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
                                                 <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <state key="normal" title="NEXT"/>
+                                                <connections>
+                                                    <action selector="nextButtonTappedWithSender:" destination="cox-Tt-V64" eventType="touchUpInside" id="yAW-ER-L7z"/>
+                                                </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="yeD-m7-4ys">
                                                 <rect key="frame" x="78" y="127" width="34" height="33"/>
                                                 <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
                                                 <color key="tintColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <state key="normal" title="Skip"/>
+                                                <connections>
+                                                    <action selector="skipButtonTappedWithSender:" destination="cox-Tt-V64" eventType="touchUpInside" id="1R2-PZ-sL8"/>
+                                                </connections>
                                             </button>
                                         </subviews>
                                     </stackView>
@@ -155,7 +161,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="2Av-m0-bi7" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1731.8840579710147" y="36.495535714285715"/>
+            <point key="canvasLocation" x="959" y="671"/>
         </scene>
     </scenes>
 </document>
