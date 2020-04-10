@@ -23,6 +23,8 @@
 		5C16A91E242100F700CA5301 /* RestaurantDetailHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C16A91D242100F700CA5301 /* RestaurantDetailHeaderView.swift */; };
 		5C419BEB243F94CD00465D3A /* Onboarding.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5C419BEA243F94CD00465D3A /* Onboarding.storyboard */; };
 		5C419BED24405B6900465D3A /* WalkthroughContentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C419BEC24405B6900465D3A /* WalkthroughContentViewController.swift */; };
+		5C419BEF24405E1A00465D3A /* WalkthroughPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C419BEE24405E1A00465D3A /* WalkthroughPageViewController.swift */; };
+		5C419BF1244060F500465D3A /* WalkthroughViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C419BF0244060F500465D3A /* WalkthroughViewController.swift */; };
 		5C673FFC2425FEED003BFA01 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5C673FFB2425FEED003BFA01 /* MapKit.framework */; };
 		5C673FFE24260D1B003BFA01 /* RestaurantDetailSeparatorCellTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C673FFD24260D1B003BFA01 /* RestaurantDetailSeparatorCellTableViewCell.swift */; };
 		5C67400024260DCB003BFA01 /* RestaurantDetailMapCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C673FFF24260DCB003BFA01 /* RestaurantDetailMapCell.swift */; };
@@ -60,6 +62,8 @@
 		5C16A91D242100F700CA5301 /* RestaurantDetailHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RestaurantDetailHeaderView.swift; sourceTree = "<group>"; };
 		5C419BEA243F94CD00465D3A /* Onboarding.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Onboarding.storyboard; sourceTree = "<group>"; };
 		5C419BEC24405B6900465D3A /* WalkthroughContentViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WalkthroughContentViewController.swift; sourceTree = "<group>"; };
+		5C419BEE24405E1A00465D3A /* WalkthroughPageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WalkthroughPageViewController.swift; sourceTree = "<group>"; };
+		5C419BF0244060F500465D3A /* WalkthroughViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WalkthroughViewController.swift; sourceTree = "<group>"; };
 		5C673FFB2425FEED003BFA01 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
 		5C673FFD24260D1B003BFA01 /* RestaurantDetailSeparatorCellTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RestaurantDetailSeparatorCellTableViewCell.swift; sourceTree = "<group>"; };
 		5C673FFF24260DCB003BFA01 /* RestaurantDetailMapCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RestaurantDetailMapCell.swift; sourceTree = "<group>"; };
@@ -111,6 +115,8 @@
 				5CDFBEAC242F403E00F13597 /* ReviewViewController.swift */,
 				5CFCC6072435518D00853A2F /* NewRestaurantController.swift */,
 				5C419BEC24405B6900465D3A /* WalkthroughContentViewController.swift */,
+				5C419BEE24405E1A00465D3A /* WalkthroughPageViewController.swift */,
+				5C419BF0244060F500465D3A /* WalkthroughViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -292,6 +298,7 @@
 			files = (
 				5CA100002425081A005B0D38 /* UINavigationController+Ext.swift in Sources */,
 				BA86FF9A241104E700CF22E4 /* RestaurantTableViewCell.swift in Sources */,
+				5C419BEF24405E1A00465D3A /* WalkthroughPageViewController.swift in Sources */,
 				5CFCC6082435518D00853A2F /* NewRestaurantController.swift in Sources */,
 				5CDFBEAD242F403E00F13597 /* ReviewViewController.swift in Sources */,
 				5CE83B0C242245D50027F635 /* RestaurantDetailTextCell.swift in Sources */,
@@ -304,6 +311,7 @@
 				BA86FF842410F95C00CF22E4 /* AppDelegate.swift in Sources */,
 				5C419BED24405B6900465D3A /* WalkthroughContentViewController.swift in Sources */,
 				5CFCC60624354FDB00853A2F /* RoundedTextField.swift in Sources */,
+				5C419BF1244060F500465D3A /* WalkthroughViewController.swift in Sources */,
 				5CA1FFFE24250637005B0D38 /* UIColor+Ext.swift in Sources */,
 				BA86FF982410FA2A00CF22E4 /* RestaurantTableViewController.swift in Sources */,
 				5C16A9072420E43E00CA5301 /* SceneDelegate.swift in Sources */,

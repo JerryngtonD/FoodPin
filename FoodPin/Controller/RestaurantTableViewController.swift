@@ -174,6 +174,13 @@ class RestaurantTableViewController: UITableViewController, NSFetchedResultsCont
         cell.heartImageView.isHidden = !restaurant.isVisited
         return cell
     }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        let storyboard = UIStoryboard(name: "Onboarding", bundle: nil)
+        if let walkthroughViewController = storyboard.instantiateViewController(withIdentifier: "WalkthroughViewController") as? WalkthroughViewController {
+            present(walkthroughViewController, animated: true, completion: nil)
+        }
+    }
   
     override var prefersStatusBarHidden: Bool {
         return true
