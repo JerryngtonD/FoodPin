@@ -29,6 +29,7 @@ class WalkthroughViewController: UIViewController,  WalkthroughPageViewControlle
     }
     
     @IBAction func skipButtonTapped(sender: UIButton) {
+        UserDefaults.standard.set(true, forKey: "hasViewedWalkthrough")
         dismiss(animated: true, completion: nil)
     }
     
@@ -44,7 +45,9 @@ class WalkthroughViewController: UIViewController,  WalkthroughPageViewControlle
         if let index = walkthroughPageViewController?.currentIndex {
             switch index {
             case 0...1: walkthroughPageViewController?.forwardPage()
-            case 2: dismiss(animated: true, completion: nil)
+            case 2:
+                UserDefaults.standard.set(true, forKey: "hasViewedWalkthrough")
+                dismiss(animated: true, completion: nil)
             default: break
             }
         }
