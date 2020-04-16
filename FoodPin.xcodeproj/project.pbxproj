@@ -31,6 +31,8 @@
 		5C674002242615BA003BFA01 /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C674001242615BA003BFA01 /* MapViewController.swift */; };
 		5CA100002425081A005B0D38 /* UINavigationController+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CA1FFFF2425081A005B0D38 /* UINavigationController+Ext.swift */; };
 		5CA1FFFE24250637005B0D38 /* UIColor+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CA1FFFD24250637005B0D38 /* UIColor+Ext.swift */; };
+		5CC8493B24485DFF008D1910 /* About.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5CC8493924485DFF008D1910 /* About.storyboard */; };
+		5CC8493D24485EE2008D1910 /* Discover.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5CC8493C24485EE2008D1910 /* Discover.storyboard */; };
 		5CDFBEAD242F403E00F13597 /* ReviewViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CDFBEAC242F403E00F13597 /* ReviewViewController.swift */; };
 		5CE83B0A242240C20027F635 /* RestaurantDetailIconTextCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CE83B09242240C20027F635 /* RestaurantDetailIconTextCell.swift */; };
 		5CE83B0C242245D50027F635 /* RestaurantDetailTextCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CE83B0B242245D50027F635 /* RestaurantDetailTextCell.swift */; };
@@ -70,6 +72,8 @@
 		5C674001242615BA003BFA01 /* MapViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapViewController.swift; sourceTree = "<group>"; };
 		5CA1FFFD24250637005B0D38 /* UIColor+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+Ext.swift"; sourceTree = "<group>"; };
 		5CA1FFFF2425081A005B0D38 /* UINavigationController+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UINavigationController+Ext.swift"; sourceTree = "<group>"; };
+		5CC8493A24485DFF008D1910 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/About.storyboard; sourceTree = "<group>"; };
+		5CC8493C24485EE2008D1910 /* Discover.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Discover.storyboard; sourceTree = SOURCE_ROOT; };
 		5CDFBEAC242F403E00F13597 /* ReviewViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReviewViewController.swift; sourceTree = "<group>"; };
 		5CE83B09242240C20027F635 /* RestaurantDetailIconTextCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RestaurantDetailIconTextCell.swift; sourceTree = "<group>"; };
 		5CE83B0B242245D50027F635 /* RestaurantDetailTextCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RestaurantDetailTextCell.swift; sourceTree = "<group>"; };
@@ -124,6 +128,8 @@
 		5C16A9042420E36600CA5301 /* Storyboard */ = {
 			isa = PBXGroup;
 			children = (
+				5CC8493C24485EE2008D1910 /* Discover.storyboard */,
+				5CC8493924485DFF008D1910 /* About.storyboard */,
 				BA86FF892410F95C00CF22E4 /* Main.storyboard */,
 				BA86FF8E2410F96000CF22E4 /* LaunchScreen.storyboard */,
 				5C419BEA243F94CD00465D3A /* Onboarding.storyboard */,
@@ -281,8 +287,10 @@
 				BA86FF8D2410F96000CF22E4 /* Assets.xcassets in Resources */,
 				5C16A91A2420EE6100CA5301 /* Rubik-Italic.ttf in Resources */,
 				5C16A9162420EE6100CA5301 /* Rubik-Bold.ttf in Resources */,
+				5CC8493D24485EE2008D1910 /* Discover.storyboard in Resources */,
 				5C16A91C2420EE6100CA5301 /* Rubik-Medium.ttf in Resources */,
 				5C16A9192420EE6100CA5301 /* Rubik-Light.ttf in Resources */,
+				5CC8493B24485DFF008D1910 /* About.storyboard in Resources */,
 				5C419BEB243F94CD00465D3A /* Onboarding.storyboard in Resources */,
 				5C16A9142420EE6100CA5301 /* Rubic in Resources */,
 				BA86FF8B2410F95C00CF22E4 /* Main.storyboard in Resources */,
@@ -323,6 +331,14 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXVariantGroup section */
+		5CC8493924485DFF008D1910 /* About.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				5CC8493A24485DFF008D1910 /* Base */,
+			);
+			name = About.storyboard;
+			sourceTree = "<group>";
+		};
 		BA86FF892410F95C00CF22E4 /* Main.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (

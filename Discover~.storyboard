@@ -432,10 +432,10 @@
                                 </connections>
                             </button>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="top" spacing="6" translatesAutoresizingMaskIntoConstraints="NO" id="dR6-VM-g1c">
-                                <rect key="frame" x="55" y="-5" width="304" height="906"/>
+                                <rect key="frame" x="93.5" y="215.5" width="227" height="465"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="COI-YT-mB5">
-                                        <rect key="frame" x="0.0" y="0.0" width="265" height="164"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="188" height="82"/>
                                         <fontDescription key="fontDescription" name="Rubik-Regular" family="Rubik" pointSize="50"/>
                                         <state key="normal" title="Love" image="love"/>
                                         <connections>
@@ -443,7 +443,7 @@
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="sHe-Ej-880">
-                                        <rect key="frame" x="0.0" y="170" width="261" height="166"/>
+                                        <rect key="frame" x="0.0" y="88" width="181" height="83"/>
                                         <fontDescription key="fontDescription" name="Rubik-Regular" family="Rubik" pointSize="50"/>
                                         <state key="normal" title="Cool" image="cool"/>
                                         <connections>
@@ -451,7 +451,7 @@
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kCA-tD-PcH">
-                                        <rect key="frame" x="0.0" y="342" width="304" height="172"/>
+                                        <rect key="frame" x="0.0" y="177" width="227" height="86"/>
                                         <fontDescription key="fontDescription" name="Rubik-Regular" family="Rubik" pointSize="50"/>
                                         <state key="normal" title="Happy" image="happy"/>
                                         <connections>
@@ -459,7 +459,7 @@
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="PKR-2u-KLd">
-                                        <rect key="frame" x="0.0" y="520" width="245" height="174"/>
+                                        <rect key="frame" x="0.0" y="269" width="167" height="87"/>
                                         <fontDescription key="fontDescription" name="Rubik-Regular" family="Rubik" pointSize="50"/>
                                         <state key="normal" title="Sad" image="sad"/>
                                         <connections>
@@ -467,7 +467,7 @@
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7kg-em-GXj">
-                                        <rect key="frame" x="0.0" y="700" width="287" height="206"/>
+                                        <rect key="frame" x="0.0" y="362" width="218" height="103"/>
                                         <fontDescription key="fontDescription" name="Rubik-Regular" family="Rubik" pointSize="50"/>
                                         <state key="normal" title="Angry" image="angry"/>
                                         <connections>
@@ -757,6 +757,52 @@
             </objects>
             <point key="canvasLocation" x="1044.9275362318842" y="128.57142857142856"/>
         </scene>
+        <!--Discover-->
+        <scene sceneID="Vjx-gA-B92">
+            <objects>
+                <tableViewController id="Gv2-4V-JKX" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="iyC-PF-gxx">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <prototypes>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" id="koo-aP-cwt">
+                                <rect key="frame" x="0.0" y="28" width="414" height="43.5"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="koo-aP-cwt" id="9vw-KC-8mH">
+                                    <rect key="frame" x="0.0" y="0.0" width="414" height="43.5"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                </tableViewCellContentView>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="Gv2-4V-JKX" id="4jh-VO-I5M"/>
+                            <outlet property="delegate" destination="Gv2-4V-JKX" id="TDY-0n-yNF"/>
+                        </connections>
+                    </tableView>
+                    <navigationItem key="navigationItem" title="Discover" id="FI0-8T-Cas"/>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Aiq-5G-PID" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-328" y="848"/>
+        </scene>
+        <!--Discover-->
+        <scene sceneID="cY1-n2-AQS">
+            <objects>
+                <navigationController id="z9c-xU-xuf" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Discover" image="discover" id="VMG-5P-ikT"/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="HpO-Fq-v8H">
+                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="Gv2-4V-JKX" kind="relationship" relationship="rootViewController" id="s48-Iq-azL"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="tzb-c6-OqM" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-1259" y="849"/>
+        </scene>
         <!--Navigation Controller-->
         <scene sceneID="uro-E7-ss2">
             <objects>
@@ -787,7 +833,7 @@
                     </tabBar>
                     <connections>
                         <segue destination="6V2-6W-8m1" kind="relationship" relationship="viewControllers" id="qOb-eM-4aO"/>
-                        <segue destination="Jhf-98-avF" kind="relationship" relationship="viewControllers" id="J4C-Nc-Der"/>
+                        <segue destination="z9c-xU-xuf" kind="relationship" relationship="viewControllers" id="J4C-Nc-Der"/>
                         <segue destination="h1v-Sr-KNR" kind="relationship" relationship="viewControllers" id="fcb-5F-hGc"/>
                     </connections>
                 </tabBarController>
@@ -805,21 +851,12 @@
             </objects>
             <point key="canvasLocation" x="845" y="848"/>
         </scene>
-        <!--Discover-->
-        <scene sceneID="5wN-Bx-YKz">
-            <objects>
-                <viewControllerPlaceholder storyboardName="Discover" id="Jhf-98-avF" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Item" id="kVs-Bj-eUE"/>
-                </viewControllerPlaceholder>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="cVh-nX-ZwJ" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="-1259" y="849"/>
-        </scene>
     </scenes>
     <resources>
         <image name="angry" width="78" height="103"/>
         <image name="arrow.down.doc" catalog="system" width="56" height="64"/>
         <image name="cool" width="78" height="83"/>
+        <image name="discover" width="35" height="20"/>
         <image name="empty" width="310" height="372"/>
         <image name="favorite" width="22" height="22"/>
         <image name="happy" width="78" height="86"/>
