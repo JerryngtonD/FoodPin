@@ -34,6 +34,7 @@
 		5CC8493B24485DFF008D1910 /* About.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5CC8493924485DFF008D1910 /* About.storyboard */; };
 		5CC8493D24485EE2008D1910 /* Discover.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5CC8493C24485EE2008D1910 /* Discover.storyboard */; };
 		5CC8493F244867AA008D1910 /* AboutTableTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CC8493E244867AA008D1910 /* AboutTableTableViewController.swift */; };
+		5CC8494124486F24008D1910 /* WebViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CC8494024486F24008D1910 /* WebViewController.swift */; };
 		5CDFBEAD242F403E00F13597 /* ReviewViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CDFBEAC242F403E00F13597 /* ReviewViewController.swift */; };
 		5CE83B0A242240C20027F635 /* RestaurantDetailIconTextCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CE83B09242240C20027F635 /* RestaurantDetailIconTextCell.swift */; };
 		5CE83B0C242245D50027F635 /* RestaurantDetailTextCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CE83B0B242245D50027F635 /* RestaurantDetailTextCell.swift */; };
@@ -76,6 +77,7 @@
 		5CC8493A24485DFF008D1910 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/About.storyboard; sourceTree = "<group>"; };
 		5CC8493C24485EE2008D1910 /* Discover.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Discover.storyboard; sourceTree = SOURCE_ROOT; };
 		5CC8493E244867AA008D1910 /* AboutTableTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AboutTableTableViewController.swift; sourceTree = "<group>"; };
+		5CC8494024486F24008D1910 /* WebViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebViewController.swift; sourceTree = "<group>"; };
 		5CDFBEAC242F403E00F13597 /* ReviewViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReviewViewController.swift; sourceTree = "<group>"; };
 		5CE83B09242240C20027F635 /* RestaurantDetailIconTextCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RestaurantDetailIconTextCell.swift; sourceTree = "<group>"; };
 		5CE83B0B242245D50027F635 /* RestaurantDetailTextCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RestaurantDetailTextCell.swift; sourceTree = "<group>"; };
@@ -124,6 +126,7 @@
 				5C419BEE24405E1A00465D3A /* WalkthroughPageViewController.swift */,
 				5C419BF0244060F500465D3A /* WalkthroughViewController.swift */,
 				5CC8493E244867AA008D1910 /* AboutTableTableViewController.swift */,
+				5CC8494024486F24008D1910 /* WebViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -321,6 +324,7 @@
 				5C67400024260DCB003BFA01 /* RestaurantDetailMapCell.swift in Sources */,
 				5CC8493F244867AA008D1910 /* AboutTableTableViewController.swift in Sources */,
 				BA86FF842410F95C00CF22E4 /* AppDelegate.swift in Sources */,
+				5CC8494124486F24008D1910 /* WebViewController.swift in Sources */,
 				5C419BED24405B6900465D3A /* WalkthroughContentViewController.swift in Sources */,
 				5CFCC60624354FDB00853A2F /* RoundedTextField.swift in Sources */,
 				5C419BF1244060F500465D3A /* WalkthroughViewController.swift in Sources */,

@@ -787,8 +787,8 @@
                     </tabBar>
                     <connections>
                         <segue destination="6V2-6W-8m1" kind="relationship" relationship="viewControllers" id="qOb-eM-4aO"/>
-                        <segue destination="Jhf-98-avF" kind="relationship" relationship="viewControllers" id="J4C-Nc-Der"/>
-                        <segue destination="h1v-Sr-KNR" kind="relationship" relationship="viewControllers" id="fcb-5F-hGc"/>
+                        <segue destination="Jhf-98-avF" kind="relationship" relationship="viewControllers" destinationCreationSelector="Discover" id="J4C-Nc-Der"/>
+                        <segue destination="h1v-Sr-KNR" kind="relationship" relationship="viewControllers" destinationCreationSelector="About" id="fcb-5F-hGc"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="leU-vP-GRT" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>

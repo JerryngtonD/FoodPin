@@ -3,6 +3,7 @@
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15510"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -29,7 +30,7 @@
                             </constraints>
                         </view>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="AboutCell" textLabel="7pK-N1-b3B" style="IBUITableViewCellStyleDefault" id="t4g-dk-7az" customClass="AboutTableViewController">
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="AboutCell" textLabel="7pK-N1-b3B" style="IBUITableViewCellStyleDefault" id="t4g-dk-7az">
                                 <rect key="frame" x="0.0" y="148" width="414" height="43.5"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="t4g-dk-7az" id="Zld-ce-XRW">
@@ -53,10 +54,48 @@
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" title="About" id="c3X-dV-aax"/>
+                    <connections>
+                        <segue destination="w9B-Fz-GMl" kind="show" identifier="showWebView" id="2Y7-nG-mJW"/>
+                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="rfJ-Eh-fE1" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1762" y="848"/>
+        </scene>
+        <!--Web View Controller-->
+        <scene sceneID="s7z-4c-s0Y">
+            <objects>
+                <viewController id="w9B-Fz-GMl" customClass="WebViewController" customModule="FoodPin" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="iBh-c0-Ntb">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <wkWebView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="6R1-wz-JE7">
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <wkWebViewConfiguration key="configuration">
+                                    <audiovisualMediaTypes key="mediaTypesRequiringUserActionForPlayback" none="YES"/>
+                                    <wkPreferences key="preferences"/>
+                                </wkWebViewConfiguration>
+                            </wkWebView>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstAttribute="bottom" secondItem="6R1-wz-JE7" secondAttribute="bottom" id="ZtD-nY-53Z"/>
+                            <constraint firstItem="6R1-wz-JE7" firstAttribute="top" secondItem="iBh-c0-Ntb" secondAttribute="top" id="hLA-qC-FXM"/>
+                            <constraint firstItem="6R1-wz-JE7" firstAttribute="leading" secondItem="KyU-Jh-JFi" secondAttribute="leading" id="lhg-Xy-Q9W"/>
+                            <constraint firstItem="6R1-wz-JE7" firstAttribute="trailing" secondItem="KyU-Jh-JFi" secondAttribute="trailing" id="rSt-7H-Gsc"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="KyU-Jh-JFi"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="J4R-BJ-52K"/>
+                    <connections>
+                        <outlet property="webView" destination="6R1-wz-JE7" id="mGS-A5-0ib"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Avv-bQ-v9z" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2708.6956521739135" y="847.76785714285711"/>
         </scene>
         <!--Avout-->
         <scene sceneID="ZJp-CO-Iq0">

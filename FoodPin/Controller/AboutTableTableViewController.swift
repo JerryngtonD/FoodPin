@@ -72,12 +72,25 @@ class AboutTableTableViewController: UITableViewController {
             if indexPath.row == 0 {
                 if let url = URL(string: link) {
                     UIApplication.shared.open(url) }
-                }
+            } else if indexPath.row == 1 {
+                performSegue(withIdentifier: "showWebView", sender: self)
+            }
         default:
             break
         }
         
         tableView.deselectRow(at: indexPath, animated: false)
+    }
+    
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "showWebView" {
+            if let destinationController = segue.destination as? WebViewController {
+                if let indexPath = tableView.indexPathForSelectedRow {
+                            destinationController.targetURL = sectionContent[indexPath.section][indexPath.row].link
+                }
+            }
+        }
     }
 
 }
